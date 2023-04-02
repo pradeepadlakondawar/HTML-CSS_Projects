@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI CALCULATOR</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            color: white;
+            background-color: rgb(108, 171, 243);
+
+        }
+
+        /* Glassmorphism card effect */
+        .card {
+            width: 400px;
+            height: 80vh;
+            backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(146, 179, 230, 0.75);
+            border-radius: 12px;
+            border: 1px solid rgba(228, 237, 252, 0.3);
+        }
+
+        #card {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(108, 171, 243);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position-x: 50%;
+            height: 100vh;
+        }
+        .card-head {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 1.7em;
+        }
+        .form-control,.input-group-text {
+            height: 50px;
+        }
+        .form-range {
+            height: 20px;
+            margin-top: 20px;
+        }
+        #imglap {
+            width: 700px;
+            position: fixed;
+            top: 20px;
+            right: -100px;
+
+        }
+        .rangefrom {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+
+            font-size: 1.5em;
+        }
+        label{
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .card-1{
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .card-2{
+            margin-top: 60px;
+            margin-left: 100px;
+        }
+        
+    </style>
+</head>
+
+<body class="container-fluid">
+    <img src="./assets/developer-code-laptop_1.5x.svg" id="imglap">
+    <div class="row" id="card">
+        <div class="col-6 card card-1">
+            <div class="card-head">
+                <span class="bi bi-arrow-left text-primary "></span>
+                <span>
+                    <h2 class="text-primary">EMI Calculator</h2>
+                </span>
+            </div>
+            <div class="card-bodys">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" class="form-control w-100" onchange="amountChange()" id="userAmount">
+                    <input type="range" class="form-range" onchange="amountChange()" value="0" min="0" max="500000" step="10000" id="loanAmount">
+                    <div class="rangefrom">
+                        <span>₹ 0</span> <span>₹ 500000</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Years</label>
+                    <input type="text" class="form-control w-100" id="userYear">
+                    <input type="range" class="form-range" onchange="amountChange()" value="0" step="1" min="1" max="5"
+                        id="loanYear">
+                    <div class="rangefrom">
+                        <span>1</span> <span>5</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interest %</label>
+                    <input type="text" class="form-control w-100" id="userIntrest">
+                    <input type="range" class="form-range" onchange="amountChange()" value="0" step="1" min="1" max="20"
+                        id="loanIntrest">
+                    <div class="rangefrom">
+                        <span>1%</span> <span>20%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card card-2">
+            <div class="card-head">
+                <button type="button" onclick="calculate()"
+                    class="btn btn-outline-primary btn-lg btn-block w-100"><h2>Calculate</h2></button>
+            </div>
+            <div class="card-bodys text-center mt-3 ">
+                <label >Monthly EMI Amount</label>
+            <form class="form-inline">
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" >₹</span>
+                  </div>
+                  <input type="text" class="form-control" value="0" readonly id="loanEmiAmount">
+                </div>
+              </form>
+
+              <img src="./assets/loan-svgrepo-com.svg"  id="pic" height="300" class="card-img-top mt-5" >
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <Script>
+        function amountChange() {
+            var AMOUNT = document.getElementById("userAmount").value =
+                document.getElementById("loanAmount").value;
+            
+            document.getElementById("userYear").value =
+                document.getElementById("loanYear").value;
+
+            document.getElementById("userIntrest").value =
+                document.getElementById("loanIntrest").value;
+        }
+
+        function calculate() {
+
+            var P = document.getElementById("loanAmount").value;
+            var R = document.getElementById("loanIntrest").value;
+            var N = document.getElementById("loanYear").value;
+            var Rmonthly = document.getElementById("loanIntrest").value / 12;
+            var Nmonthly = document.getElementById("loanYear").value * 12; 
+
+            var EMI = (P * (Rmonthly / 100) * (1 + (Rmonthly / 100)) ** Nmonthly) / (((1 + (Rmonthly / 100)) ** (Nmonthly)) - 1);
+
+            var loanEmiAmount = document.getElementById("loanEmiAmount");
+            loanEmiAmount.value =EMI;
+
+        }
+    </Script>
+</body>
+
+</html>
