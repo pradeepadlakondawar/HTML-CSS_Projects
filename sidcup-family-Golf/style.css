@@ -9,6 +9,26 @@
 html,body{
     height: 100%;
     width: 100%;
+} 
+
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+    transition: all linear 0.1s;
+}
+#cursor-blur{
+    height: 300px;
+    width: 300px;
+    background-color: #96c11e4f;
+    border-radius: 50%;
+    position: fixed;
+    filter:blur(40px);
+    z-index: 9;
+    transition: all linear 0.3s;
 }
 
 #nav{
@@ -55,6 +75,7 @@ video{
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    z-index: 10;
 }
 
 #page1 h1{
@@ -83,4 +104,55 @@ video{
     font-size: 18px;
     font-weight: 400;
     width: 50%;
+}
+
+
+#page2{
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+
+}
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+    display: inline-block;
+    font-size: 100px;
+    font-weight: 900;
+    font-family: gilroy;
+    margin: 10px;
+    transition: all linear 0.5s;
+    color: black;
+    -webkit-text-stroke: 0.3px #fff;
+}
+#scroller h4:hover{
+    color:#95C11E;
+}
+
+@keyframes scroll{
+    from{
+        transform: translate(0%);
+    }
+    to{
+        transform: translate(-100%);
+    }
 }
