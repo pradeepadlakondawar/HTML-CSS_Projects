@@ -243,8 +243,8 @@ video{
     background-position: center;
     overflow: hidden;
     transition: all ease 0.6s;
-    border: 2px solid red;
-    transform: (0,0,0,0deg);
+    /* border: 2px solid red; */
+    /* transform: (0,0,0,0deg); */
 
 }
 #card1{
@@ -286,7 +286,7 @@ background-image: url('https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/0
 }
 .card:hover{
     transform: (-1,1,0,20deg);
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
 }
 
 #green-div{
