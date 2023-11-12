@@ -7,7 +7,7 @@ document.addEventListener('mousemove',(e)=>{
     cursor_blur.style.left =e.x-200+"px";
     cursor_blur.style.top =e.y-200+"px";
 
-})
+}) 
 
 let navh4= document.querySelectorAll("#nav h4");
 navh4.forEach(function(elm){
@@ -69,7 +69,7 @@ gsap.from(".card", {
     scale:0.8,
     opacity:0,
     duration:1,
-    stagger:0.1,
+    // stagger:0.1,
     scrollTrigger:{
         trigger:".card",
         scroller:"body",
@@ -102,6 +102,18 @@ gsap.from("#colon2",{
         start:"top 55%",
         end:"top 45%",
         scrub:4
+    }
+})
+
+gsap.from("#page4 h1",{
+    y:50,
+    scrollTrigger:{
+        trigger:"#page4 h1",
+        scoller:"body",
+        // markers:true,
+        start:"top 75%",
+        end:"top 70%",
+        scrub:3
     }
 })
 
