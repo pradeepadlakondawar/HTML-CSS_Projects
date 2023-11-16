@@ -8,7 +8,7 @@ document.addEventListener('mousemove',(e)=>{
     cursor_blur.style.top =e.y-200+"px";
 
 }) 
-
+ 
 let navh4= document.querySelectorAll("#nav h4");
 navh4.forEach(function(elm){
     elm.addEventListener('mouseenter', function(){

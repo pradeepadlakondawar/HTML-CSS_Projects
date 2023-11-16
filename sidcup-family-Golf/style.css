@@ -148,7 +148,7 @@ video{
     z-index: 10;
 
 }
-
+ 
 #scroller{
     /* background-color: red; */
     white-space: nowrap;
@@ -310,6 +310,52 @@ background-image: url('https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/0
     object-fit: cover;
     width: 13%;
 }
+
+#img-scroller-page{
+    height: 60vh;
+    width: 100%;
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+    position: relative;
+    z-index: 10;
+    transform: rotate(-4deg);
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+#img-scroller-page::-webkit-scrollbar{
+    display: none;
+}
+#img-scroller-images{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#img-scroller-images img{
+    width: 220px;
+    height: 290px;
+    padding: 15px;
+    /* border: 2px solid green; */
+    border-radius: 30px;
+    object-fit: cover;
+    display: inline-block;
+}
+#Instagram-link {
+    font-size: 22px;
+    font-weight: 900;
+    transform: rotate(-4deg);
+    text-align: right;
+   padding-right: 50px;
+    /* background-color: red; */
+}
+
+
 
 #page3{
     height: 100vh;
